@@ -10,11 +10,12 @@ class Message
 		Message(Level type);
 		
 		Level level();
-		void setLevel(Level level);
-	
-		std::string toString();
 		std::string levelToString();
+		void setLevel(Level level);
 
+		std::string message();
+		uint32_t code();
+	
 		Message& operator<<(Level level);
 		Message& operator<<(std::string text);
 		Message& operator<<(uint32_t number);

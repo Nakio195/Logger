@@ -3,13 +3,28 @@
 
 #include <iostream>
 #include "Logger.h"
+#include "JsonLogger.h"
+
+Logger logger;
+JsonLogger json;
 
 int main()
 {
     Message m(Message::Info);
+    m << "Coucou";
+    logger.log(m);
+    json.log(m);
 
-    m << Message::Warning << 102 << "Log Coucou" << "\n" << "Attention tu fais coucou";
-    std::cout << m.toString();
+    m = Message(Message::Critical);
+    m << "Critical Error" << 12;
+    json.log(m);
+
+    while (logger.available())
+        logger.run();
+
+    while (json.available())
+        json.run();
+
 }
 
 // Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage

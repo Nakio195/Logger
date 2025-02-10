@@ -16,28 +16,6 @@ void Message::setLevel(Level level)
 	mLevel = level;
 }
 
-std::string Message::toString()
-{
-	std::string out;
-
-	out += levelToString();
-	if(mCode != 0)
-	{
-		out += " - ";
-		out += std::to_string(mCode);
-	}
-
-	if(!mMessage.empty())
-	{
-		out += " : ";
-		out += mMessage;
-	}
-
-	out += "\n";
-
-	return out;
-}
-
 std::string Message::levelToString()
 {
 	switch (mLevel)
@@ -55,6 +33,16 @@ std::string Message::levelToString()
 		default:
 			return std::string("[UNKNOWN]");
 	}
+}
+
+std::string Message::message()
+{
+	return mMessage;
+}
+
+uint32_t Message::code()
+{
+	return mCode;
 }
 
 Message& Message::operator<<(Level level)

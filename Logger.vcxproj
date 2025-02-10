@@ -127,12 +127,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="JsonLogger.cpp" />
     <ClCompile Include="Logger.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Message.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ArduinoJson-v7.3.0.h" />
+    <ClInclude Include="JsonLogger.h" />
     <ClInclude Include="Logger.h" />
     <ClInclude Include="Message.h" />
     <ClInclude Include="Messages.h" />
